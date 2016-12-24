@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\common\Buffer.cpp" />
+    <ClCompile Include="..\common\CppSQLite3.cpp" />
+    <ClCompile Include="..\common\DBHelper.cpp" />
+    <ClCompile Include="..\common\sqlite3.c" />
+    <ClCompile Include="RegistServer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\Buffer.h" />
+    <ClInclude Include="..\common\ComDef.h" />
+    <ClInclude Include="..\common\CppSQLite3.h" />
+    <ClInclude Include="..\common\DBHelper.h" />
+    <ClInclude Include="..\common\sqlite3.h" />
+  </ItemGroup>
+</Project>

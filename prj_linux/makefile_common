@@ -1,0 +1,49 @@
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in UAS linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := .
+
+SRC_DIR := $(TOP)/common
+
+## Name and type of the target for this Makefile
+
+ARC_TARGET := common
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER=_LINUX_# _EQUATOR_, _HHPPC_, _LINUX_ and so on
+PWLIB_SUPPORT = 0
+
+CFLAGS += -fno-omit-frame-pointer
+
+
+## Object files that compose the target(s)
+##SRCS := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/*.c)
+##OBJS := $(patsubst %.cpp,%, $(SRCS)) $(patsubst %.c,%, $(SRCS))
+
+OBJS := $(SRC_DIR)/Buffer $(SRC_DIR)/CppSQLite3 $(SRC_DIR)/DBHelper  
+
+## Libraries to include in shared object file
+
+LIBS := pthread
+        
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(TOP)/include ../thirdparty/poco/Foundation/include  ../thirdparty/poco/Net/include   
+           
+# LIB_PATH := 
+
+INSTALL_LIB_PATH = $(TOP)/lib
+include $(COMM_DIR)/common.mk
+
+clean:
+	rm -f $(SRC_DIR)/*.o
+	rm -f *.a

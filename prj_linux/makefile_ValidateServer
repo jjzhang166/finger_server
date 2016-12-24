@@ -1,0 +1,46 @@
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in UAS linux project.
+###
+#########################################################################
+
+SRC_DIR := ../ValidateServer
+
+COMM_DIR := .
+
+## Name and type of the target for this Makefile
+
+APP_TARGET := ValidateServer
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER=_LINUX_
+PWLIB_SUPPORT = 0
+
+CFLAGS += -fno-omit-frame-pointer
+CFLAGS += -D_LINUX
+
+## Object files that compose the target(s)
+
+OBJS :=   ../ValidateServer/ValidateServer
+
+## Libraries to include in shared object file
+
+LIBS := pthread common GBFPIA sqlite3  PocoNet  PocoFoundation
+        
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += ../common  ../thirdparty/poco/Foundation/include  ../thirdparty/poco/Net/include     
+
+LIB_PATH := . ../lib 
+
+INSTALL_APP_PATH = ../bin
+
+include $(COMM_DIR)/common.mk
+
+clean:
+	rm -f $(SRC_DIR)/*.o
+	rm -f *.a
